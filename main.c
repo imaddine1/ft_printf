@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:11:45 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/01 14:34:41 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/01 19:47:53 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@ int	main(void)
 	int		a;
 
 	x = 'a';
-	a = 9;
-//	char p[100] = "imad %c harile";
-//	ft_printf ("imad harile his %d note %c is",x,a);
-	char *l = "%c imad %d";
-	int d = strlen (l);
-	int i =	printf ("%c imad %d",x,a);
-	printf ("\n %d  %d",i,d);
+	a = 115;
+//	char p[100] = "imad %d harile";
+	int i =	ft_printf ("imad %d", a);
+	//printf ("\n %d", i);
+	// char *l = "%c imad %d";
+	// int d = strlen (l);
+	// int i =	ft_printf ("%c imad %d",x,a);
+	// printf ("\n %d  %d",i,d);
 	return (0);
 }
