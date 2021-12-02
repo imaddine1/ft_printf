@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:49:39 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/02 11:01:19 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/02 12:50:13 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,6 @@ int	ft_putchar(char c)
 	return (1);
 }
 
-// int	ft_nbrlen(int n)
-// {
-// 	int	count;
-
-// 	count = 0;
-// 	while (n > 0)
-// 	{
-// 		n /= 10;
-// 		count ++;
-// 	}
-// 	return (count);
-// }
-
 int	ft_putnbr(int n)
 {
 	long		nb;
@@ -49,14 +36,14 @@ int	ft_putnbr(int n)
 	nb = n;
 	if (nb < 0)
 	{	
-		ft_putchar ('-');
+		count += ft_putchar ('-');
 		nb *= (-1);
 	}
 	if (nb > 9)
 	{
 		ft_putnbr(nb / 10);
 	}
-	count += ft_putchar((char)(nb % 10) + 48);
+	count += ft_putchar((nb % 10) + 48);
 	return (count);
 }
 
@@ -71,4 +58,16 @@ int	ft_putstr(char *str)
 		i++;
 	}
 	return (i);
+}
+
+int	ft_unsigned_int(unsigned int nb)
+{
+	static int	count;
+
+	if (nb > 9)
+	{
+		ft_unsigned_int(nb / 10);
+	}
+	count += ft_putchar((nb % 10) + 48);
+	return (count);
 }

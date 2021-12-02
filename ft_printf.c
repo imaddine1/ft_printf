@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 13:19:02 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/02 10:01:06 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/02 12:12:28 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,19 @@ int	check_type(char c, va_list args)
 {
 	int	count;
 
-	count = 1;
-	if (c == 'd')
+	count = 0;
+	if (c == 'd' || c == 'i')
 		count = ft_putnbr (va_arg(args, int));
 	if (c == 'c')
-		ft_putchar (va_arg(args, int));
+		count = ft_putchar (va_arg(args, int));
 	if (c == 's')
 		count = ft_putstr (va_arg(args, char *));
 	if (c == 'x')
 		count = ft_hexa_lower(va_arg(args, int));
+	if (c == 'X')
+		count = ft_hexa_upper(va_arg(args, int));
+	if (c == 'u')
+		count = ft_unsigned_int(va_arg(args, int));
 	return (count);
 }
 
@@ -49,8 +53,7 @@ int	ft_printf(const char *format, ...)
 		}
 		else
 		{	
-			ft_putchar (format[j]);
-			count++;
+			count += ft_putchar (format[j]);
 			j++;
 		}
 	}
