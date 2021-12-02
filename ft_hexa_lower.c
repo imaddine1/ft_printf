@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   ft_hexa_lower.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 13:29:20 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/02 10:57:14 by iharile          ###   ########.fr       */
+/*   Created: 2021/12/02 09:39:57 by iharile           #+#    #+#             */
+/*   Updated: 2021/12/02 11:02:14 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-# define HEADER_H
-# include<stdio.h>
-# include<stdlib.h>
-# include<string.h>
-# include<stdarg.h>
-# include<unistd.h>
+#include "header.h"
 
-int		ft_putnbr(int n);
-int		ft_putchar(char c);
-int		ft_strlen(const char *s);
-int		ft_printf(const char *format, ...);
-int		ft_nbrlen(int n);
-int		ft_putstr(char *str);
-int		ft_hexa_lower(unsigned int nb);
-#endif
+int	ft_hexa_lower(unsigned int nb)
+{
+	char		*str;
+	static int	count;
+
+	str = "0123456789abcdef";
+	if (nb > 15)
+	{
+		ft_hexa_lower(nb / 16);
+	}
+	nb %= 16;
+	count += ft_putchar (str[nb]);
+	return (count);
+}
