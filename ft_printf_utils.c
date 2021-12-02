@@ -6,35 +6,46 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:49:39 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/02 16:56:55 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/02 20:30:02 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "ft_printf.h"
 
-int	ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write (1, &c, 1);
-	return (1);
+}
+
+static int	ft_nbrlen(int n)
+{
+	int	count;
+
+	count = 0;
+	while (n > 0)
+	{
+		n /= 10;
+		count ++;
+	}
+	return (count);
 }
 
 int	ft_putnbr(int n)
 {
-	long		nb;
-	static int	count;
+	long	nb;
 
 	nb = n;
 	if (nb < 0)
 	{	
-		count += ft_putchar ('-');
+		ft_putchar ('-');
 		nb *= (-1);
 	}
 	if (nb > 9)
 	{
 		ft_putnbr(nb / 10);
 	}
-	count += ft_putchar((nb % 10) + 48);
-	return (count);
+	ft_putchar((nb % 10) + 48);
+	return (ft_nbrlen(n));
 }
 
 int	ft_putstr(char *str)
@@ -63,6 +74,6 @@ int	ft_unsigned_int(unsigned int nb)
 	{
 		ft_unsigned_int(nb / 10);
 	}
-	count += ft_putchar((nb % 10) + 48);
+	ft_putchar((nb % 10) + 48);
 	return (count);
 }

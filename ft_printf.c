@@ -6,21 +6,21 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 13:19:02 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/02 16:53:08 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/02 20:46:55 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "ft_printf.h"
 
 int	check_type(char c, va_list args)
 {
 	int	count;
 
-	count = 0;
+	count = 1;
 	if (c == 'd' || c == 'i')
 		count = ft_putnbr (va_arg(args, int));
 	if (c == 'c')
-		count = ft_putchar (va_arg(args, int));
+		ft_putchar (va_arg(args, int));
 	if (c == 's')
 		count = ft_putstr (va_arg(args, char *));
 	if (c == 'x')
@@ -32,7 +32,7 @@ int	check_type(char c, va_list args)
 	if (c == 'p')
 		count = ft_hex(va_arg(args, unsigned long long));
 	if (c == '%')
-		count = ft_putchar('%');
+		ft_putchar('%');
 	return (count);
 }
 
@@ -57,7 +57,8 @@ int	ft_printf(const char *format, ...)
 		}
 		else
 		{	
-			count += ft_putchar (format[j]);
+			ft_putchar (format[j]);
+			count ++;
 			j++;
 		}
 	}
