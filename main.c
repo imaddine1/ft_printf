@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:11:45 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/02 12:54:12 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/02 13:02:29 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 int	main(void)
 {
 	char	x;
-	int		a;
+	void	*a;
 	char	*str;
 
 	str = "peace to all of us";
 	x = ' ';
-	a = 10;
+	a = (void *)7;
 //	char p[100] = "imad %d harile";
-	int i =	ft_printf ("imad %u", a);
+	int i =	printf ("imad %p", a);
 	printf ("\n%d", i);
 	// char *l = "%c imad %d";
 	// int d = strlen (l);
