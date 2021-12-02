@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:49:39 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/02 14:30:53 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/02 16:56:55 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ int	ft_putstr(char *str)
 {
 	int	i;
 
+	if (str == NULL)
+	{
+		write (1, "(null)", 6);
+		return (6);
+	}
 	i = 0;
 	while (str[i])
 	{

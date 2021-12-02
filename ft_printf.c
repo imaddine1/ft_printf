@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 13:19:02 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/02 16:17:00 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/02 16:53:08 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	check_type(char c, va_list args)
 		count = ft_unsigned_int(va_arg(args, int));
 	if (c == 'p')
 		count = ft_hex(va_arg(args, unsigned long long));
+	if (c == '%')
+		count = ft_putchar('%');
 	return (count);
 }
 
