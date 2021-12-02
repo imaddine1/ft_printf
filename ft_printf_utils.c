@@ -6,21 +6,11 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:49:39 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/02 13:21:31 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/02 14:30:53 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-int	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
 
 int	ft_putchar(char c)
 {

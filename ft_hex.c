@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 09:39:57 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/02 13:34:51 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/02 16:21:29 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,19 @@ int	ft_hexa_upper(unsigned int nb)
 	return (count);
 }
 
-int	ft_hex(void *n)
+int	ft_hex(unsigned long long nb)
 {
-	char				*str;
-	static int			count = 2;
-	unsigned long long	nb;
+	char		*str;
+	static int	count = 2;
 
-	nb = (unsigned long long)n;
 	str = "0123456789abcdef";
-
+	if (nb > 15)
+	{
+		ft_hex(nb / 16);
+	}
+	else
+	 write (1, "0x", 2);
+	nb %= 16;
+	count += ft_putchar (str[nb]);
 	return (count);
 }
