@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:49:39 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/02 20:30:02 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/03 10:44:28 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,18 @@ void	ft_putchar(char c)
 	write (1, &c, 1);
 }
 
-static int	ft_nbrlen(int n)
+static int	ft_nbrlen(long n)
 {
 	int	count;
 
 	count = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+	{
+		n *= (-1);
+		count ++;
+	}
 	while (n > 0)
 	{
 		n /= 10;
@@ -32,7 +39,8 @@ static int	ft_nbrlen(int n)
 
 int	ft_putnbr(int n)
 {
-	long	nb;
+	long		nb;
+	const int	count = ft_nbrlen(n);
 
 	nb = n;
 	if (nb < 0)
@@ -45,7 +53,7 @@ int	ft_putnbr(int n)
 		ft_putnbr(nb / 10);
 	}
 	ft_putchar((nb % 10) + 48);
-	return (ft_nbrlen(n));
+	return (count);
 }
 
 int	ft_putstr(char *str)
@@ -66,14 +74,14 @@ int	ft_putstr(char *str)
 	return (i);
 }
 
-int	ft_unsigned_int(unsigned int nb)
+int	ft_unsigned_int(unsigned int n)
 {
-	static int	count;
+	const int	count = ft_nbrlen(n);
 
-	if (nb > 9)
+	if (n > 9)
 	{
-		ft_unsigned_int(nb / 10);
+		ft_unsigned_int(n / 10);
 	}
-	ft_putchar((nb % 10) + 48);
+	ft_putchar((n % 10) + 48);
 	return (count);
 }

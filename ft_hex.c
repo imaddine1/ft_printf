@@ -6,16 +6,18 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 09:39:57 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/02 20:47:11 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/03 10:33:08 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_nbrlen_hex(int n)
+static int	ft_nbrlen_hex(unsigned int n)
 {
 	int	count;
 
+	if (n == 0)
+		return (1);
 	count = 0;
 	while (n > 0)
 	{
@@ -25,28 +27,26 @@ static int	ft_nbrlen_hex(int n)
 	return (count);
 }
 
-int	ft_hexa_lower(unsigned int nb)
+int	ft_hexa_lower(unsigned int n)
 {
-	char			*str;
-	unsigned int	n;
+	char		*str;
+	const int	count = ft_nbrlen_hex(n);
 
-	n = nb;
 	str = "0123456789abcdef";
 	if (n > 15)
 	{
 		ft_hexa_lower(n / 16);
 	}
 	n %= 16;
-	ft_putchar (str[nb]);
-	return (ft_nbrlen_hex(nb));
+	ft_putchar (str[n]);
+	return (count);
 }
 
-int	ft_hexa_upper(unsigned int nb)
+int	ft_hexa_upper(unsigned int n)
 {
-	char			*str;
-	unsigned int	n;
+	char		*str;
+	const int	count = ft_nbrlen_hex(n);
 
-	n = nb;
 	str = "0123456789ABCDEF";
 	if (n > 15)
 	{
@@ -54,15 +54,14 @@ int	ft_hexa_upper(unsigned int nb)
 	}
 	n %= 16;
 	ft_putchar (str[n]);
-	return (ft_nbrlen_hex(nb));
+	return (count);
 }
 
-int	ft_hex(unsigned long long nb)
+int	ft_hex(unsigned long n)
 {
-	char				*str;
-	unsigned long long	n;
+	char			*str;
+	const int		count = ft_nbrlen_hex(n);
 
-	n = nb;
 	str = "0123456789abcdef";
 	if (n > 15)
 	{
@@ -72,5 +71,5 @@ int	ft_hex(unsigned long long nb)
 		write (1, "0x", 2);
 	n %= 16;
 	ft_putchar (str[n]);
-	return (ft_nbrlen_hex(nb) + 2);
+	return (count + 2);
 }
