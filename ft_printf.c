@@ -6,13 +6,13 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 13:19:02 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/03 12:24:24 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/03 16:57:18 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	check_type(char c, va_list args)
+static int	check_type(char c, va_list args)
 {
 	int	count;
 
@@ -56,8 +56,7 @@ int	ft_printf(const char *format, ...)
 		{	
 			if (format[j] == '%')
 				j += 1;
-			ft_putchar (format[j]);
-			count ++;
+			count += ft_putchar(format[j]);
 			j++;
 		}
 	}

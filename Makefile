@@ -6,7 +6,7 @@
 #    By: iharile <iharile@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/02 17:04:13 by iharile           #+#    #+#              #
-#    Updated: 2021/12/02 17:22:40 by iharile          ###   ########.fr        #
+#    Updated: 2021/12/03 17:31:08 by iharile          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,10 @@ RM = rm -f
 SRC = ft_printf.c ft_printf_utils.c ft_hex.c
 OBJ = $(SRC:.c=.o)
 
-
 all : $(NAME)
 
 $(NAME) : $(OBJ)
+
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -29,7 +29,7 @@ $(NAME) : $(OBJ)
 
 
 clean :
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(OBJ_BS)
 
 fclean : clean
 	$(RM) $(NAME)
