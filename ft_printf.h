@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 13:29:20 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/03 17:05:22 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/03 17:36:26 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,4 @@ int	ft_hexa_lower(unsigned int n);
 int	ft_hexa_upper(unsigned int n);
 int	ft_unsigned_int(unsigned int n);
 int	ft_hex(unsigned long n);
-/******* BONUS *******/
-int	ft_printf_bs(const char *f, ...);
-int	ft_add_zero(int n);
-int	ft_putchar_bs(char c);
 #endif
