@@ -6,13 +6,13 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 09:39:57 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/03 10:33:08 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/03 10:51:25 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_nbrlen_hex(unsigned int n)
+static int	ft_nbrlen_hex(unsigned long n)
 {
 	int	count;
 
