@@ -6,15 +6,16 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:49:39 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/03 10:44:28 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/03 12:17:55 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	write (1, &c, 1);
+	return (1);
 }
 
 static int	ft_nbrlen(long n)

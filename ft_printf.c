@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 13:19:02 by iharile           #+#    #+#             */
-/*   Updated: 2021/12/03 10:13:42 by iharile          ###   ########.fr       */
+/*   Updated: 2021/12/03 12:24:24 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int	check_type(char c, va_list args)
 {
 	int	count;
 
-	count = 1;
+	count = 0;
 	if (c == 'd' || c == 'i')
 		count = ft_putnbr (va_arg(args, int));
 	if (c == 'c')
-		ft_putchar (va_arg(args, int));
+		count = ft_putchar (va_arg(args, int));
 	if (c == 's')
 		count = ft_putstr (va_arg(args, char *));
 	if (c == 'x')
@@ -32,7 +32,7 @@ int	check_type(char c, va_list args)
 	if (c == 'p')
 		count = ft_hex(va_arg(args, unsigned long));
 	if (c == '%')
-		ft_putchar('%');
+		count = ft_putchar('%');
 	return (count);
 }
 
@@ -47,16 +47,15 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (format[j])
 	{
-		if (format[j] == '%' && (format [j + 1] == 'd' || format[j + 1] == 'c'
-				|| format[j + 1] == 's' || format[j + 1] == 'p'
-				|| format[j + 1] == 'i' || format[j + 1] == 'u' || format[j + 1]
-				== 'x' || format[j + 1] == 'X' || format[j + 1] == '%'))
+		if (format[j] == '%')
 		{
 			count += check_type(format[j + 1], args);
 			j += 2;
 		}
 		else
 		{	
+			if (format[j] == '%')
+				j += 1;
 			ft_putchar (format[j]);
 			count ++;
 			j++;
