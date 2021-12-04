@@ -22,11 +22,9 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 
-
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 	ar rc $(NAME) $@
-
 
 clean :
 	$(RM) $(OBJ)
