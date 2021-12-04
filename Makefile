@@ -29,7 +29,7 @@ $(NAME) : $(OBJ)
 
 
 clean :
-	$(RM) $(OBJ) $(OBJ_BS)
+	$(RM) $(OBJ)
 
 fclean : clean
 	$(RM) $(NAME)
